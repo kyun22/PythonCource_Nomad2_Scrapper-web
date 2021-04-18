@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Job Search</title>
+    <style>
+        section {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(5, 1fr);
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Search Results</h1>
+    <h3>{{resultsNum}} results for searching by : {{searching_by}}</h3>
+    <a href="/export?word={{searching_by}}">Export to CSV</a>
+    <section>
+        <h4>From</h4>
+        <h4>Title</h4>
+        <h4>Company</h4>
+        <h4>Location</h4>
+        <h4>link</h4>
+
+<!--        파이썬 코드를 flask 안에서 쓰기-->
+        {% for job in jobs %}
+        <span>{{job.title}}</span>
+        <span>{{job.title}}</span>
+        <span>{{job.company}}</span>
+        <span>{{job.location}}</span>
+        <a href="{{job.link}}" target="_blank">Apply</a>
+        {% endfor %}
+    </section>
+</body>
+</html>
